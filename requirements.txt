@@ -1,6 +1,4 @@
 Flask
-python-dotenv
 azure-storage-blob
 pyodbc
 flask-bcrypt
-dotenv

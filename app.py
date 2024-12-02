@@ -2,28 +2,27 @@ from flask import Flask, request, render_template, redirect, url_for, session, f
 import os
 import pyodbc
 from azure.storage.blob import BlobServiceClient
-from dotenv import load_dotenv
+
 from flask_bcrypt import Bcrypt
 import re
 from collections import namedtuple
 
-# Charger les variables d'environnement
-load_dotenv()
+
 
 
 
 
 # Configurations Flask
 app = Flask(__name__, static_folder='static')
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your_secret_key')
+app.secret_key = 'mysecretkey123'
 
 # Initialisation Flask-Bcrypt
 bcrypt = Bcrypt(app)
 # Configurations Azure
-AZURE_CONNECTION_STRING = os.getenv('AZURE_CONNECTION_STRING')
-DATABASE_URL = os.getenv('DATABASE_URL')
-DATABASE_USER = os.getenv('DATABASE_USER')
-DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
+AZURE_CONNECTION_STRING = 'DefaultEndpointsProtocol=https;AccountName=gallerieblobstorage;AccountKey=6ByUB2iUQzfycZ+oE736OSX4ZpGpIc3YMieuIQ+pGst0hgYPvyeFvF/mB0HvitrFkYMKoz5qwcGR+AStx/OAJQ==;EndpointSuffix=core.windows.net'
+DATABASE_URL = 'galleryserver.database.windows.net'
+DATABASE_USER = 'azureuser'
+DATABASE_PASSWORD = 'MiSaTiFa12!*'
 CONTAINER_NAME = "gallery-photos"
 
 # Initialisation Azure Blob Storage
